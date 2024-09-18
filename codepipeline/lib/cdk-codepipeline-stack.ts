@@ -13,10 +13,7 @@ export class CdkCodepipelineStack extends cdk.Stack {
     new CodePipeline(this, "CDKPipeline", {
       pipelineName: "CDKPipeline",
       synth: new ShellStep("Synth", {
-        input: CodePipelineSource.gitHub(
-          "mohamedsamara/aws-cdk-codepipeline",
-          "main"
-        ),
+        input: CodePipelineSource.gitHub("mohamedsamara/aws-cdk", "main"),
         commands: [
           "cd codepipeline",
           "npm ci",
